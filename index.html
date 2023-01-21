@@ -16,8 +16,131 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-markdown>
+					<textarea data-template>
+						# Business Case for SvelteKit
+						by Chris Ellis
+						---
+						## Hey, I'm Chris
+						- I'm Sr Director of Engineering at [XtendOps](https://www.xtendops.com)
+						---
+						## Who we are
+						- We're a Business Processes Outsourcing company
+						- We help companies with Customer Experience
+						- Engineering at XtendOps supports our Customer Experience and Clients
+						---
+						## Our Tech Stack
+						- We're a JavaScript shop
+						- We use Svelte, Meteor, and MongoDB
+						---
+						## What we started with
+						- Serverful Meteor/Svelte apps
+						- Evolutionary product development
+						- Meteor App has batteries included
+						- Handled authentication, devops, routing, etc.
+						---
+						![Meteor](meteor.png)
+						---
+						## What's the problem?
+						- I still love Meteor
+						- But...
+							- Our builds are slow
+							- Smaller ecosystem
+							- Apps feel heavy
+						---
+						# Dilemma
+						---
+						## Kicking Tyres(Tires @ 🇺🇸)
+						- Feasibility check
+						- My role at XtendOps
+						---
+						## Kicking Tyres(Tires @ 🇺🇸)
+						Can we:
+						- rebuild Meteor modelled authentication?
+						- build our most complicated assessments?
+						- handle transitions between Flows?
+						- wrestle our "evolved" data model?
+						---
+						## Authentication
+						- We use Meteor's accounts system
+						- Great thing about Open Source
+						- Loved the simplicity
+						- Modelled off of it
+						---
+						## Voice Assessments
+						- Records user's voice & transcribes in GCS
+						- Scores transcription to estimate BPO level of English
+						- Would this hold up in SvelteKit Endpoints?
+						---
+						## Flows
+						- Our assessments are built in Flows
+						- A Flow is a series of steps specific to a Job, Client, or Office Base
+						- Handled with SPA like routing
+						---
+						## Data Model
+						- How do you start forcing schema on an API that has evolved with few constraints?
+						- How do you handle the data model in a way that is flexible, but still enforceable?
+						---
+						## Data Model
+						Prisma saves the day
+						```
+						npx prisma db pull
+						```
+						- 1200 line schema...Yikes
+						- Does it build? Can I use it?
+						---
+						# Executing the Plan
+						---
+						## The Team
+						- Team of wonderful full stack developers
+						- Already fluent in Svelte, just needed to understand SvelteKit
+						---
+						## Split it up
+						- Don't step on each other's toes
+						- Use Prisma Client where it makes sense, default Case
+						- Use Mongo Client where it doesn't
+						---
+						## Integration
+						- As sections are completed, integrate them into the whole
+						- Flows made this complicated
+						- Use SvelteKit Endpoints to handle API calls
+						---
+						## Testing
+						- We did E2E testing in PlayWright
+						- There was a lot of manual testing though
+						- UI/UX played a huge role in this
+						---
+						# Results
+						---
+						## Dev Experience 🤩
+						- SvelteKit is a joy to work with
+						- SvelteKit Endpoints are a great way to handle API calls
+						- Prisma Client is an amazing way to handle data
+						- How long do you think it took to build this?
+						---
+						# 2.2 weeks
+						---
+						<div style="max-height: 80vh; height: 80vh; width: 50vw;">
+							<canvas data-chart="line" >
+								<!-- {
+									"type": "line",
+									"data": {
+										"labels": ["Before", "After"],
+										"datasets":[
+											{
+												"data":[41, 87],
+												"label":"Performance",
+												"backgroundColor":"rgba(20,220,220,.8)",
+												"borderColor":"white"
+											}
+										]
+									}
+								} 
+							-->
+							</canvas>
+						</div>
+					</textarea>
+				</section>
 			</div>
 		</div>
 
@@ -25,6 +148,40 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script>
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: true,
+			chart: {
+				defaults: {
+					color: 'white', // color of labels
+					scale: {
+						beginAtZero: true,
+						ticks: { stepSize: 1 },
+						grid: { color: "white" }, // color of grid lines
+						pointLabels: { fontColor: "white" }, // color of labels
+
+					},
+				},
+				line: { 
+					backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ],
+					borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], 
+					"borderDash": [ [5,10], [0,0] ] 
+				},
+			},
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+		});
+
+	</script>
+
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -33,7 +190,7 @@
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealChart ]
 			});
 		</script>
 	</body>
