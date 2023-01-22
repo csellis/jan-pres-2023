@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Business Case for SvelteKit</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -129,7 +129,7 @@
 						- Use SvelteKit Endpoints to handle API calls
 						---
 						## Testing
-						- We did E2E testing in PlayWright
+						- We had E2E testing in PlayWright
 						- There was a lot of manual testing though
 						- UI/UX played a huge role in this
 						---
@@ -165,7 +165,7 @@
 						## How does this help the business?
 						---
 						<div style="text-align: left; color: #cbd5e1; font-size: 2rem;">
-							<div style="text-align: left; color: white;">After moving to SvelteKit,</div>
+							<div style="text-align: left; color: #94a3b8;">After moving to SvelteKit, we experienced a</div>
 							<h1 style="font-size: 18rem;">5.15%</h1>
 							<div style="font-weight: bolder;">increase in Assessment Completion Rate.</div>
 							<div style="font-size: 1.2rem; color: #94a3b8;">
@@ -174,8 +174,9 @@
 						</div>
 						---
 						## Connecting the dots
-						- It's not just about the code
-						- It's about the experience
+						- This is the type of business impact companies need to see to justify a migration
+						- It's hard to get this type of data
+						- If you have it, please share it!
 						---
 						## Connecting the dots
 						- It's not just about the code
@@ -183,8 +184,8 @@
 						- We found an improved Business Experience moving to SvelteKit
 						---
 						## If you want to do this
-						- Prove your trickiest parts
-						- Plan for Authentication & Data Model
+						- Prove your most difficult parts
+						- Plan for Auth & Data Model
 						- Build your business use case
 						---
 						<h2>Questions?</h2>
@@ -216,8 +217,6 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
-	<script src="plugin/chart/plugin.js"></script>
 	<script>
 
 		// Also available as an ES module, see:
@@ -227,23 +226,6 @@
 			progress: true,
 			center: true,
 			hash: true,
-			chart: {
-				defaults: {
-					color: 'white', // color of labels
-					scale: {
-						beginAtZero: true,
-						ticks: { stepSize: 1 },
-						grid: { color: "white" }, // color of grid lines
-						pointLabels: { fontColor: "white" }, // color of labels
-
-					},
-				},
-				line: { 
-					backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ],
-					borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], 
-					"borderDash": [ [5,10], [0,0] ] 
-				},
-			},
 			// Learn about plugins: https://revealjs.com/plugins/
 			plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
 		});
@@ -258,7 +240,7 @@
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealChart ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 		</script>
 	</body>
